@@ -1,69 +1,46 @@
-@import url('../css/reset.css');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+@import url(../css/_reset.css);
+@import url(../css/_base.css);
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-}
+/*----Section Esquerda-----*/
 
-body {
-    background-color: #2E0249;
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    font-weight: 500;
-    color: #ffffff;
-}
-
-.container {
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-    height: 100vh;
-    padding: 3.5em;
-}
-
-.div-informacoes {
-    width: 50%;
-    padding-right: 5em;
+.lado-esquerdo {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding-right: 5em;
+    width: 50%;
 }
 
-
-.titulo-informacoes {
+.titulo-principal {
+    margin: 0;
     font-size: 48px;
     font-weight: 700;
 }
 
-.titulo-destaque {
-    color: #A91079;
+.titulo-principal--destaque {
+    color: var(--cor-destaque);
 }
 
-.lista-item {
-    padding: 1em;
+.contato-lista {
     display: flex;
-    cursor: pointer;
-    flex-direction: row;
     align-items: center; 
+    cursor: pointer;
     border: 3px solid transparent;
+    padding: 1em;
 }
 
-.lista-item:active {
+.contato-lista:active {
     background-color: #570A57;
-    border: 3px solid #A91079;
+    border: 3px solid var(--cor-destaque);
     border-radius: 16px;  
 }
 
-.lista-icone {
+.contato-lista--icone {
     margin-right: 1em;
 }
 
 .redes-sociais {
     display: flex;
-    flex-direction: row;
     gap: 1em;
     cursor: pointer;
 }
@@ -73,95 +50,93 @@ body {
 }
 
 .redes-sociais--item:active {
-    background-color: #A91079;
+    background-color: var(--cor-destaque);
     border-radius: 50%;
 }
 
-.div-contato {
-    width: 50%;
-    background-color: #EEEEEE;
+/*----Section Diretia-----*/
+
+.lado-direito {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: var(--branco);
     border-radius: 24px;
-    padding: 2em;
+    padding: 1.5em;
+    width: 50%;
 }
 
-.titulo-contato {
-    color: #2E0249;
+.titulo-mensagem {
+    color: var(--cor-de-fundo);
     font-size: 20px;
     margin-bottom: 1em;
 }
 
-.div-botoes {
+.div-botoes-mensagem {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     gap: .5em;
     margin-bottom: 1em;
 }
 
-.botoes {
+.botoes-mensagem {
     border: 2px solid;
     border-radius: 8px;
-    color: #2E0249;
-    padding: .5em 1em;
+    color: var(--cor-de-fundo);
+    font-size: 16px;
+    padding: .5rem;
     opacity: 30%;
-    font-size: 20px;
 }
 
-.botoes:active {
-    background-color: #A91079;
-    color: #EEEEEE;
+.botoes-mensagem:active {
+    background-color: var(--cor-destaque);
+    color: var(--branco);
     opacity: 100%;
 }
 
-.fieldset {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
-
 .form {
-    height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 70%;
 }
 
-.label {
-    color: #2E0249;
+.fieldset-mensagem {
+    display: flex;
+    flex-direction: column;
+    gap: .3em;
 }
 
-.input {
+.label-mensagem {
+    color: var(--cor-de-fundo);
+    font-size: 16px;
+    top: 40px;
+    position: relative;
+}
+
+.input-mensagem {
     border: none;
-    border-bottom: 3px solid #A91079;
+    border-bottom: 3px solid var(--cor-destaque);
+    font-size: 16px;
     outline: none;
     padding: .5em;
-    background-color: transparent;
-    font-size: 20px;
 }
 
-.botao-contato {
-    background-color: #A91079;
-    color: #EEEEEE;
+.botao-mensagem {
+    background-color: var(--cor-destaque);
+    color: var(--branco);
     border: none;
     border-radius: 8px;
-    padding: 1em 2em;
-    font-size: 20px;
-
+    font-size: 16px;
+    
     display: flex;
-    flex-direction: row;
     align-items: center;
+    align-self: flex-start;
+    padding: 1em 2em;
     gap: .5em;
 }
 
-.label {
-    opacity: 30%
-}
-
-
-.input {
-   opacity: 30%
-}
-
-.botao-contato {
+.label-mensagem, .input-mensagem, .botao-mensagem {
     opacity: 30%
 } 

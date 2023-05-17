@@ -9,21 +9,21 @@
 </head>
 <body>
     <main class="container">
-        <div class="div-informacoes">
-            <h1 class="titulo-informacoes">Let’s discuss <br>on something <b class="titulo-destaque">cool</b> together</h1>
-            <ul class="lista">
-                <li class="lista-item">
-                    <img src="../assets/img/email.svg" alt="ícone email" class="lista-icone">
+        <section class="lado-esquerdo">
+            <h1 class="titulo-principal">Let’s discuss <br>on something <b class="titulo-principal--destaque">cool</b> together</h1>
+            <ul class="contato">
+                <li class="contato-lista">
+                    <img src="../assets/img/email.svg" alt="ícone email" class="contato-lista--icone">
                     SaulDesign@gmail.com
                 </li>
 
-                <li class="lista-item">
-                    <img src="../assets/img/telefone.svg" alt="ícone telefone" class="lista-icone">
+                <li class="contato-lista">
+                    <img src="../assets/img/telefone.svg" alt="ícone telefone" class="contato-lista--icone">
                     +123 456 789
                 </li>
 
-                <li class="lista-item">
-                    <img src="../assets/img/localizacao.svg" alt="ícone localização" class="lista-icone">
+                <li class="contato-lista">
+                    <img src="../assets/img/localizacao.svg" alt="ícone localização" class="contato-lista--icone">
                     123 Street 456 House
                 </li>
             </ul>
@@ -33,45 +33,46 @@
                     <a href="#"></a>
                 </li>
                 <li class="redes-sociais--item">
-                    <img src="../assets/img/instagram.svg" alt="Instagram" class="redes-sociais--icone">
-                    <a href="#"></a>
+                    <a href="#">
+                        <img src="../assets/img/instagram.svg" alt="Instagram" class="redes-sociais--icone">
+                    </a>
                 </li>
                 <li class="redes-sociais--item">
-                    <img src="../assets/img/twitter.svg" alt="Twitter" class="redes-sociais--icone">
-                    <a href="#"></a>
+                    <a href="#">
+                        <img src="../assets/img/twitter.svg" alt="Twitter" class="redes-sociais--icone">
+                    </a>
                 </li>
             </ul>
-        </div>
+        </section>
     
-        <div class="div-contato">
-            <h2 class="titulo-contato">I’m interested in...</h2>
-            <div class="div-botoes">
-                <button class="botoes">UI/UX design</button>
-                <button class="botoes">Web design</button>
-                <button class="botoes">Graphic design</button>
-                <button class="botoes">Design system</button>
-                <button class="botoes">Other</button>
+        <section class="lado-direito">
+            <h2 class="titulo-mensagem">I’m interested in...</h2>
+            <div class="div-botoes-mensagem">
+                <button class="botoes-mensagem">UI/UX design</button>
+                <button class="botoes-mensagem">Web design</button>
+                <button class="botoes-mensagem">Graphic design</button>
+                <button class="botoes-mensagem">Design system</button>
+                <button class="botoes-mensagem">Other</button>
             </div>
     
             <form class="form">
-                <fieldset class="fieldset">
-                    <label class="label">Your name</label>
-                    <input type="text" class="input">
+                <fieldset class="fieldset-mensagem">
+                    <label class="label-mensagem">Your name</label>
+                    <input type="text" class="input-mensagem">
     
-                    <label class="label">Your email</label>
-                    <input type="email" class="input">
+                    <label class="label-mensagem">Your email</label>
+                    <input type="email" class="input-mensagem">
                     
-                    <label class="label">Your message</label>
-                    <input type="text" class="input">
+                    <label class="label-mensagem">Your message</label>
+                    <input type="text" class="input-mensagem">
                 </fieldset>
-                <div>
-                    <button type="submit" class="botao-contato">
+                <button type="submit" class="botao-mensagem">
                         <img src="../assets/img/enviar.svg">
-                        Send Message</button>
-                </div>
-                
+                        Send Message
+                </button>
             </form>
-        </div>
+        </section>
     </main>
+    <script src="../assets/js/index.js"></script>
 </body>
 </html>
