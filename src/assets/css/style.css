@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
 @import url(../css/_reset.css);
 @import url(../css/_base.css);
+
 
 /*----Section Esquerda-----*/
 
@@ -15,6 +17,7 @@
     margin: 0;
     font-size: 48px;
     font-weight: 700;
+    color: var(--branco);
 }
 
 .titulo-principal--destaque {
@@ -27,9 +30,12 @@
     cursor: pointer;
     border: 3px solid transparent;
     padding: 1em;
+    
+    font-size: 20px;
+    color: var(--branco);
 }
 
-.contato-lista:active {
+.contato-lista:hover {
     background-color: #570A57;
     border: 3px solid var(--cor-destaque);
     border-radius: 16px;  
@@ -45,11 +51,11 @@
     cursor: pointer;
 }
 
-.redes-sociais--icone {
+.redes-sociais--item {
     padding: 1em;
 }
 
-.redes-sociais--item:active {
+.redes-sociais--item:hover {
     background-color: var(--cor-destaque);
     border-radius: 50%;
 }
@@ -59,7 +65,6 @@
 .lado-direito {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 
     background-color: var(--branco);
     border-radius: 24px;
@@ -76,7 +81,7 @@
 .div-botoes-mensagem {
     display: flex;
     flex-wrap: wrap;
-    gap: .5em;
+    gap: 1em;
     margin-bottom: 1em;
 }
 
@@ -84,38 +89,44 @@
     border: 2px solid;
     border-radius: 8px;
     color: var(--cor-de-fundo);
+    cursor: pointer;
     font-size: 16px;
-    padding: .5rem;
+    padding: 1rem;
     opacity: 30%;
 }
 
-.botoes-mensagem:active {
+.botoes-mensagem:hover {
     background-color: var(--cor-destaque);
     color: var(--branco);
     opacity: 100%;
+}
+
+.botoes-mensagem--ativo {
+    background-color: var(--cor-destaque);
+    color: var(--branco);
+    opacity: 100%;
+}
+
+.botoes-mensagem--input {
+    display: none;
 }
 
 .form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 70%;
+    height: 100%;
 }
 
 .fieldset-mensagem {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: .3em;
 }
 
-.label-mensagem {
-    color: var(--cor-de-fundo);
-    font-size: 16px;
-    top: 40px;
-    position: relative;
-}
-
 .input-mensagem {
+    background: transparent;
     border: none;
     border-bottom: 3px solid var(--cor-destaque);
     font-size: 16px;
@@ -123,9 +134,15 @@
     padding: .5em;
 }
 
-.botao-mensagem {
+.input-mensagem::placeholder {
+    color: var(--cor-de-fundo);
+    font-size: 16px;
+}
+
+.botao-enviar {
     background-color: var(--cor-destaque);
     color: var(--branco);
+    cursor: pointer;
     border: none;
     border-radius: 8px;
     font-size: 16px;
@@ -137,6 +154,65 @@
     gap: .5em;
 }
 
-.label-mensagem, .input-mensagem, .botao-mensagem {
-    opacity: 30%
-} 
+.botao-enviar--desativado {
+    opacity: 30%;
+}
+
+.erro-nome, .erro-email, .erro-mensagem {
+    font-size: 12px;
+    color: #FF0000;
+    margin-bottom: 1em;
+    visibility: hidden;
+}
+
+
+/*------------------------------------*/
+@media screen and (max-width: 1024px) {
+    .titulo-principal {
+        font-size: 38px;
+    }
+
+    .contato-lista {
+        font-size: 16px;
+    }
+
+    .input-mensagem {
+        padding: 0;
+    }
+
+    .input-mensagem::placeholder {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }   
+
+    .contato {
+        margin: 3em 0;
+    }
+
+    .redes-sociais {
+        margin-bottom: 1em;
+    }
+
+    .lado-direito {
+        width: 100%;
+    }
+
+    .lado-esquerdo {
+        width: 100%;
+        padding: 0;
+    }
+    
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 2em;
+    }
+}

@@ -12,32 +12,33 @@
         <section class="lado-esquerdo">
             <h1 class="titulo-principal">Let’s discuss <br>on something <b class="titulo-principal--destaque">cool</b> together</h1>
             <ul class="contato">
-                <li class="contato-lista">
+                <li class="contato-lista" id="contato-lista">
                     <img src="../assets/img/email.svg" alt="ícone email" class="contato-lista--icone">
                     SaulDesign@gmail.com
                 </li>
 
-                <li class="contato-lista">
+                <li class="contato-lista" id="contato-lista">
                     <img src="../assets/img/telefone.svg" alt="ícone telefone" class="contato-lista--icone">
                     +123 456 789
                 </li>
 
-                <li class="contato-lista">
+                <li class="contato-lista" id="contato-lista">
                     <img src="../assets/img/localizacao.svg" alt="ícone localização" class="contato-lista--icone">
                     123 Street 456 House
                 </li>
             </ul>
             <ul class="redes-sociais">
-                <li class="redes-sociais--item">
-                    <img src="../assets/img/facebook.svg" alt="Facebook" class="redes-sociais--icone">
+                <li class="redes-sociais--item" id="redes-sociais--item">
                     <a href="#"></a>
+                        <img src="../assets/img/facebook.svg" alt="Facebook" class="redes-sociais--icone">
+                    </a>
                 </li>
-                <li class="redes-sociais--item">
+                <li class="redes-sociais--item" id="redes-sociais--item">
                     <a href="#">
                         <img src="../assets/img/instagram.svg" alt="Instagram" class="redes-sociais--icone">
                     </a>
                 </li>
-                <li class="redes-sociais--item">
+                <li class="redes-sociais--item" id="redes-sociais--item">
                     <a href="#">
                         <img src="../assets/img/twitter.svg" alt="Twitter" class="redes-sociais--icone">
                     </a>
@@ -47,26 +48,25 @@
     
         <section class="lado-direito">
             <h2 class="titulo-mensagem">I’m interested in...</h2>
-            <div class="div-botoes-mensagem">
-                <button class="botoes-mensagem">UI/UX design</button>
-                <button class="botoes-mensagem">Web design</button>
-                <button class="botoes-mensagem">Graphic design</button>
-                <button class="botoes-mensagem">Design system</button>
-                <button class="botoes-mensagem">Other</button>
-            </div>
-    
-            <form class="form">
-                <fieldset class="fieldset-mensagem">
-                    <label class="label-mensagem">Your name</label>
-                    <input type="text" class="input-mensagem">
-    
-                    <label class="label-mensagem">Your email</label>
-                    <input type="email" class="input-mensagem">
-                    
-                    <label class="label-mensagem">Your message</label>
-                    <input type="text" class="input-mensagem">
+            <form class="form" id="form" novalidate>
+                <fieldset class="div-botoes-mensagem">
+                    <label for="ux" class="botoes-mensagem"><input type="radio" class="botoes-mensagem--input" name="assunto" value="UI/UX design" id="ux">UI/UX design</label>
+                    <label for="webDesign" class="botoes-mensagem"><input type="radio" class="botoes-mensagem--input" name="assunto" value="Web design" id="webDesign">Web design</label>
+                    <label for="graphicDesign" class="botoes-mensagem"><input type="radio" class="botoes-mensagem--input" name="assunto" value="Graphic design" id="graphicDesign">Graphic design</label>
+                    <label for="designSystem" class="botoes-mensagem"><input type="radio" class="botoes-mensagem--input" name="assunto" value="Design system" id="designSystem">Design system</label>
+                    <label for="other" class="botoes-mensagem"><input type="radio" class="botoes-mensagem--input" name="assunto" value="Other" id="other">Other</label>
                 </fieldset>
-                <button type="submit" class="botao-mensagem">
+                <fieldset class="fieldset-mensagem">
+                    <input type="text" class="input-mensagem" id="name" placeholder="Your name">
+                    <span class="erro-nome" id="erro-nome">Digite o nome completo!</span>
+                    
+                    <input type="email" class="input-mensagem" id="email" placeholder="Your email">
+                    <span class="erro-email" id="erro-email">O email precisa ter o formato 'usuario@email.com'</span>
+                    
+                    <input type="text" class="input-mensagem" id="mensagem" placeholder="Your message">
+                    <span class="erro-mensagem" id="erro-mensagem">Mensagem muito curta!</span>
+                </fieldset>
+                <button type="submit" class="botao-enviar" id="botao-enviar">
                         <img src="../assets/img/enviar.svg">
                         Send Message
                 </button>
