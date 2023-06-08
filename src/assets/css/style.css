@@ -52,7 +52,7 @@
 }
 
 .redes-sociais--item {
-    padding: 1em;
+    padding: .75em 1em;
 }
 
 .redes-sociais--item:hover {
@@ -78,14 +78,14 @@
     margin-bottom: 1em;
 }
 
-.div-botoes-mensagem {
+.div-interesses {
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
     margin-bottom: 1em;
 }
 
-.botoes-mensagem {
+.interesses {
     border: 2px solid;
     border-radius: 8px;
     color: var(--cor-de-fundo);
@@ -95,20 +95,20 @@
     opacity: 30%;
 }
 
-.botoes-mensagem:hover {
-    background-color: var(--cor-destaque);
-    color: var(--branco);
-    opacity: 100%;
-}
-
-.botoes-mensagem--ativo {
-    background-color: var(--cor-destaque);
-    color: var(--branco);
-    opacity: 100%;
-}
-
-.botoes-mensagem--input {
+.interesses input {
     display: none;
+}
+
+.interesses:hover {
+    background-color: var(--cor-destaque);
+    color: var(--branco);
+    opacity: 100%;
+}
+
+.selected {
+    background-color: var(--cor-destaque);
+    color: var(--branco);
+    opacity: 100%;
 }
 
 .form {

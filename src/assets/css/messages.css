@@ -1,0 +1,51 @@
+.messages-section {
+    margin: 2rem;
+}
+
+.messages-title {
+    color: var(--branco);
+    font-size: 30px;
+}
+
+.messages-div {
+    background-color: var(--branco);
+    width: 50%;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.interests-div {
+    display: flex;
+    gap: 1rem;
+}
+
+.messages-interests {
+    background-color: var(--cor-destaque);
+    width: 25%;
+    padding: .75rem;
+    border-radius: 8px;
+    color: var(--branco);
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    text-align: center;
+}
+
+.messages-text p{
+    font-size: 20px;
+    margin: 1.75rem 0;
+}
+
+.messages-infos p{
+    font-weight: 700;
+    margin: .75rem 0;
+}
+
+.back-button {
+    background-color: var(--cor-destaque);
+    color: var(--branco);
+    border: none;
+    padding: .5rem 2rem;
+    border-radius: 10px;
+    font-size: 16px;
+}

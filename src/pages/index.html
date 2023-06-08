@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,17 +29,17 @@
             </ul>
             <ul class="redes-sociais">
                 <li class="redes-sociais--item" id="redes-sociais--item">
-                    <a href="#"></a>
+                    <a href="#" class="redes-sociais--icone"></a>
                         <img src="../assets/img/facebook.svg" alt="Facebook" class="redes-sociais--icone">
                     </a>
                 </li>
                 <li class="redes-sociais--item" id="redes-sociais--item">
-                    <a href="#">
+                    <a href="#" class="redes-sociais--icone">
                         <img src="../assets/img/instagram.svg" alt="Instagram" class="redes-sociais--icone">
                     </a>
                 </li>
                 <li class="redes-sociais--item" id="redes-sociais--item">
-                    <a href="#">
+                    <a href="#" class="redes-sociais--icone">
                         <img src="../assets/img/twitter.svg" alt="Twitter" class="redes-sociais--icone">
                     </a>
                 </li>
@@ -48,21 +48,38 @@
     
         <section class="lado-direito">
             <h2 class="titulo-mensagem">I’m interested in...</h2>
-            <form class="form" id="form" novalidate>
-                <fieldset class="div-botoes-mensagem">
-                    <label for="ux" class="botoes-mensagem"><input type="radio" class="botoes-mensagem--input" name="assunto" value="UI/UX design" id="ux">UI/UX design</label>
-                    <label for="webDesign" class="botoes-mensagem"><input type="radio" class="botoes-mensagem--input" name="assunto" value="Web design" id="webDesign">Web design</label>
-                    <label for="graphicDesign" class="botoes-mensagem"><input type="radio" class="botoes-mensagem--input" name="assunto" value="Graphic design" id="graphicDesign">Graphic design</label>
-                    <label for="designSystem" class="botoes-mensagem"><input type="radio" class="botoes-mensagem--input" name="assunto" value="Design system" id="designSystem">Design system</label>
-                    <label for="other" class="botoes-mensagem"><input type="radio" class="botoes-mensagem--input" name="assunto" value="Other" id="other">Other</label>
+            <form class="form" id="form">
+                <fieldset class="div-interesses">
+                    <label class="interesses">
+                        <input type="checkbox" id="assunto">
+                        UI/UX design
+                    </label>
+                    <label class="interesses">
+                        <input type="checkbox" id="assunto">
+                        Web design
+                    </label>
+                    <label class="interesses">
+                        <input type="checkbox" id="assunto">
+                        Graphic design
+                    </label>
+                    <label class="interesses">
+                        <input type="checkbox" id="assunto">
+                        Design system
+                    </label>
+                    <label class="interesses">
+                        <input type="checkbox" id="assunto">
+                        Other
+                    </label>
                 </fieldset>
                 <fieldset class="fieldset-mensagem">
                     <input type="text" class="input-mensagem" id="name" placeholder="Your name">
                     <span class="erro-nome" id="erro-nome">Digite o nome completo!</span>
-                    
+                </fieldset>
+                <fieldset class="fieldset-mensagem">   
                     <input type="email" class="input-mensagem" id="email" placeholder="Your email">
                     <span class="erro-email" id="erro-email">O email precisa ter o formato 'usuario@email.com'</span>
-                    
+                </fieldset>   
+                <fieldset class="fieldset-mensagem">       
                     <input type="text" class="input-mensagem" id="mensagem" placeholder="Your message">
                     <span class="erro-mensagem" id="erro-mensagem">Mensagem muito curta!</span>
                 </fieldset>

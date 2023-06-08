@@ -1,129 +1,135 @@
 const form = document.getElementById('form');
-const nome = document.getElementById('name');
-const email = document.getElementById('email');
-const mensagem = document.getElementById('mensagem');
-const radios = document.getElementsByName('assunto');
+const interests = document.querySelectorAll('#assunto');
 const botaoEnviar = document.getElementById('botao-enviar');
-const labelRadios = document.querySelectorAll('.botoes-mensagem');
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const messageInput = document.getElementById('mensagem');
 
-atualizarBotaoEnviar();
 
-// Verificar se todos os campos estão preenchidos
-let radioSelecionadoAnterior = null; 
-let assuntoSelecionado = '';
+//Variables to recevied the error
+let nameError = true;
+let emailError = true;
+let messageError = true;
+let interestsError = true;
 
-function verificarCamposPreenchidos() {
-    var todosPreenchidos = true;
 
-    if (nome.value === '' || email.value === '' || mensagem.value === '') {
-        todosPreenchidos = false;
-    }
+interests.forEach((interest) => {
+    interest.addEventListener("click", function(){
+        const parentElement = interest.parentNode;
+        toggleSelection(parentElement);
+        checkInterests(); 
+    })
+})
 
-    var radioSelecionado = false;
-    for (let i = 0; i < radios.length; i++) {
-        if (radios[i].checked) {
-            radioSelecionado = true;
-            radios[i].parentNode.classList.add("botoes-mensagem--ativo");
-        
-            if (radioSelecionadoAnterior !== radios[i]) {
-                if (radioSelecionadoAnterior !== null) {
-                    radioSelecionadoAnterior.parentNode.classList.remove("botoes-mensagem--ativo");
-                }
-            radioSelecionadoAnterior = radios[i];
-            radioSelecionadoAnterior.parentNode.classList.add("botoes-mensagem--ativo");
-            }
-            assuntoSelecionado = radios[i].value;
-            break;
-        }
-    }
-    return todosPreenchidos && radioSelecionado && assuntoSelecionado;
+//coloca e tira a classe dos botoes
+function toggleSelection(element) {
+    element.classList.toggle('selected');
 }
 
-// Habilitar e desabilitar o botão de enviar
-function atualizarBotaoEnviar() {
-    if (verificarCamposPreenchidos()) {
-        botaoEnviar.disabled = false;
-        botaoEnviar.classList.remove("botao-enviar--desativado");
-    } else {
-        botaoEnviar.disabled = true;
-        botaoEnviar.classList.add("botao-enviar--desativado");
+//Validate name, email, message and interests fields
+function checkInterests() { 
+    const selectedInterests = document.querySelectorAll('.interesses.selected');
+    if(selectedInterests.length > 0){
+        interestsError = false;
     }
 }
 
-// Adiciona os eventlistener para os inputs e o radio
-nome.addEventListener('input', atualizarBotaoEnviar);
-email.addEventListener('input', atualizarBotaoEnviar);
-mensagem.addEventListener('input', atualizarBotaoEnviar);
-for (let i = 0; i < radios.length; i++) {
-    radios[i].addEventListener('change', atualizarBotaoEnviar);
-}
+nameInput.addEventListener("input", function(){
+    checkName();
+})
 
-// Salvar a Mensagem no Local Storage
-form.addEventListener("submit", (evento) => {
-    evento.preventDefault();
+emailInput.addEventListener("input", function(){
+    checkEmail();
+})
 
-    const nomeValido = validarNome(nome);
-    const emailValido = validarEmail(email);
-    const mensagemValida = validarMensagem(mensagem);
+messageInput.addEventListener("input", function(){
+    checkMessage();
+})
 
-    if(nomeValido && emailValido && mensagemValida){
-        const objetoFinal = {
-            name: nome.value,
-            email: email.value,
-            mensagem: mensagem.value,
-            assunto: verificarCamposPreenchidos(assuntoSelecionado)
-            }
-        
-        let arrayMensagem = [];
-        if(localStorage.hasOwnProperty('mensagem')){
-            arrayMensagem = JSON.parse(localStorage.getItem('mensagem'));            
-        }               
-        arrayMensagem.push(objetoFinal);
-        localStorage.setItem('mensagem', JSON.stringify(arrayMensagem));
-        
-        nome.value = "";
-        email.value = "";
-        mensagem.value = "";
-    }
-});
-
-//Validar os campos nome, email e mensagem
-function validarNome(nome){
-    const spanErro = document.getElementById('erro-nome');
-    const regexNome = /\w+\s+\w+/;
+function checkName(){
+    const spanError = document.getElementById('erro-nome');
+    const regexName = /\w+\s+\w+/;
     
-    if(regexNome.test(nome.value)){
-        spanErro.style.visibility = 'hidden';
-        return true;
-    }else {
-        spanErro.style.visibility = 'visible';
-        return false;
+    if(regexName.test(nameInput.value)){
+        nameError = false;
+        spanError.style.visibility = 'hidden';
+    }else if (nameInput.value == ""){
+        nameError = true;
+        spanError.style.visibility = 'hidden';
+    } else {
+        nameError = true;
+        spanError.style.visibility = 'visible';
     }
 }
 
-function validarEmail(email){
-    const spanErro = document.getElementById('erro-email');
+function checkEmail(){
+    const spanError = document.getElementById('erro-email');
     const emailRegex = /^([\w]\.?)+@([\w]+\.)+([A-Za-z]{2,4})+$/;
-
-    if(emailRegex.test(email.value)){
-        spanErro.style.visibility = 'hidden';
-        return true;
-    }else {
-        spanErro.style.visibility = 'visible';
-        return false;
+    
+    if(emailRegex.test(emailInput.value)){
+        emailError = false;
+        spanError.style.visibility = 'hidden';
+    }else if (emailInput.value == ""){
+        emailError = true;
+        spanError.style.visibility = 'hidden';
+    } else {
+        emailError = true;
+        spanError.style.visibility = 'visible';
     }
 }
 
-function validarMensagem(mensagem){
-    const spanErro = document.getElementById('erro-mensagem');
-    const mensagemRegex = /^(?=(\S+\s*){20})[\p{L}\s]*\S[\p{L}\s]*$/u;
+function checkMessage(){
+    const spanError = document.getElementById('erro-mensagem');
+    const messageRegex = /^(?=(\S+\s*){20})[\p{L}\s]*\S[\p{L}\s]*$/u;
 
-    if(mensagemRegex.test(mensagem.value)){
-        spanErro.style.visibility = 'hidden';
-        return true;
-    }else {
-        spanErro.style.visibility = 'visible';
-        return false;
+    if(messageRegex.test(messageInput.value)){
+        messageError = false;
+        spanError.style.visibility = 'hidden';
+    }else if (messageInput.value == ""){
+        messageError = true;
+        spanError.style.visibility = 'hidden';
+    } else {
+        messageError = true;
+        spanError.style.visibility = 'visible';
     }
 }
 
+enableButton();
+
+form.addEventListener("input", function(){
+    enableButton();
+})
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    saveToLocalStorage();
+    window.location.href = "messages.html";
+})
+
+
+
+function enableButton() {
+    if (!interestsError && !nameError && !emailError && !messageError){
+        botaoEnviar.disable = false;
+        botaoEnviar.classList.remove('botao-enviar--desativado');
+    }else {
+        botaoEnviar.disable = true;
+        botaoEnviar.classList.add('botao-enviar--desativado');
+    }
+}
+
+function saveToLocalStorage() {
+    const selectedInterests = document.querySelectorAll('.interesses.selected');
+
+    const arrayInterests = [];
+    arrayInterests.push(selectedInterests);
+    
+    const messageSent = {
+        name: nameInput.value,
+        email: emailInput.value,
+        message: messageInput.value, 
+        interests: arrayInterests
+    }
+
+    localStorage.setItem('messageData', JSON.stringify(messageSent));
+}
