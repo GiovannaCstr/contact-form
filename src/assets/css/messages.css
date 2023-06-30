@@ -1,10 +1,10 @@
 .messages-section {
-    margin: 2rem;
+    margin: 3rem;
 }
 
 .messages-title {
     color: var(--branco);
-    font-size: 30px;
+    font-size: 40px;
 }
 
 .messages-div {
@@ -48,4 +48,5 @@
     padding: .5rem 2rem;
     border-radius: 10px;
     font-size: 16px;
+    margin-bottom: 2rem;
 }

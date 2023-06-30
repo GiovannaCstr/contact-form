@@ -4,9 +4,8 @@ const botaoEnviar = document.getElementById('botao-enviar');
 const nameInput = document.getElementById('name');
 const emailInput = document.getElementById('email');
 const messageInput = document.getElementById('mensagem');
+const arrayMessages = JSON.parse(localStorage.getItem("messageData")) || [];
 
-
-//Variables to recevied the error
 let nameError = true;
 let emailError = true;
 let messageError = true;
@@ -21,12 +20,10 @@ interests.forEach((interest) => {
     })
 })
 
-//coloca e tira a classe dos botoes
 function toggleSelection(element) {
     element.classList.toggle('selected');
 }
 
-//Validate name, email, message and interests fields
 function checkInterests() { 
     const selectedInterests = document.querySelectorAll('.interesses.selected');
     if(selectedInterests.length > 0){
@@ -102,10 +99,21 @@ form.addEventListener("input", function(){
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-    saveToLocalStorage();
-    window.location.href = "messages.html";
-})
+    
+    interests.forEach((interest) => {
+        const parentElement = interest.parentNode;
+        parentElement.classList.remove('selected');
+    })
+    
 
+    saveToLocalStorage();
+
+    nameInput.value = "";
+    emailInput.value = "";
+    messageInput.value = "";
+
+    alert();
+})
 
 
 function enableButton() {
@@ -120,16 +128,29 @@ function enableButton() {
 
 function saveToLocalStorage() {
     const selectedInterests = document.querySelectorAll('.interesses.selected');
-
-    const arrayInterests = [];
-    arrayInterests.push(selectedInterests);
-    
     const messageSent = {
         name: nameInput.value,
         email: emailInput.value,
         message: messageInput.value, 
-        interests: arrayInterests
+        interests: selectedInterests
     }
 
-    localStorage.setItem('messageData', JSON.stringify(messageSent));
+    arrayMessages.push(messageSent);
+    localStorage.setItem("messageData", JSON.stringify(arrayMessages));
+}
+
+function alert() {
+    Swal.fire({
+        title: 'Message sent successfully',
+        text: "Click to continue",
+        icon: 'success',
+        showCancelButton: false,
+        confirmButtonColor: 'var(--cor-destaque)',
+        confirmButtonText: 'Ok!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = "messages.html";
+        }
+      })
+    
 }
