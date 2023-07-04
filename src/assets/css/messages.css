@@ -1,4 +1,11 @@
 .messages-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 0 3rem;
+}
+
+.divTitle {
     margin: 3rem;
 }
 
@@ -9,7 +16,7 @@
 
 .messages-div {
     background-color: var(--branco);
-    width: 50%;
+    width: 45%;
     padding: 1rem;
     border-radius: 10px;
     margin-bottom: 1.5rem;
@@ -31,14 +38,21 @@
     text-align: center;
 }
 
+.messages-text {
+    width: 100%;
+}
+
 .messages-text p{
     font-size: 20px;
     margin: 1.75rem 0;
+    line-height: 2rem;
 }
 
 .messages-infos p{
     font-weight: 700;
     margin: .75rem 0;
+    font-size: 14px;
+    color: var(--cinza);
 }
 
 .back-button {
@@ -48,5 +62,5 @@
     padding: .5rem 2rem;
     border-radius: 10px;
     font-size: 16px;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }

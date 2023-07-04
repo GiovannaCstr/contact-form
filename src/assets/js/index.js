@@ -11,7 +11,6 @@ let emailError = true;
 let messageError = true;
 let interestsError = true;
 
-
 interests.forEach((interest) => {
     interest.addEventListener("click", function(){
         const parentElement = interest.parentNode;
@@ -25,10 +24,11 @@ function toggleSelection(element) {
 }
 
 function checkInterests() { 
-    const selectedInterests = document.querySelectorAll('.interesses.selected');
+    selectedInterests = document.querySelectorAll(".interesses.selected");
     if(selectedInterests.length > 0){
+        console.log(selectedInterests.length)
         interestsError = false;
-    }
+    }    
 }
 
 nameInput.addEventListener("input", function(){
@@ -97,42 +97,54 @@ form.addEventListener("input", function(){
     enableButton();
 })
 
+function enableButton() {
+    if (!interestsError && !nameError && !emailError && !messageError){
+        botaoEnviar.disabled = false;
+        botaoEnviar.classList.remove('botao-enviar--desativado');
+    }else {
+        botaoEnviar.disabled = true;
+        botaoEnviar.classList.add('botao-enviar--desativado');
+    }
+}
+
+function disableButton() {
+    botaoEnviar.disabled = true;
+    botaoEnviar.classList.add('botao-enviar--desativado');
+}
+
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     
+    saveToLocalStorage();
+
     interests.forEach((interest) => {
         const parentElement = interest.parentNode;
         parentElement.classList.remove('selected');
     })
-    
-
-    saveToLocalStorage();
 
     nameInput.value = "";
     emailInput.value = "";
     messageInput.value = "";
 
+    disableButton();
+
     alert();
 })
 
 
-function enableButton() {
-    if (!interestsError && !nameError && !emailError && !messageError){
-        botaoEnviar.disable = false;
-        botaoEnviar.classList.remove('botao-enviar--desativado');
-    }else {
-        botaoEnviar.disable = true;
-        botaoEnviar.classList.add('botao-enviar--desativado');
-    }
-}
-
 function saveToLocalStorage() {
-    const selectedInterests = document.querySelectorAll('.interesses.selected');
+    selectedInterests = document.querySelectorAll(".interesses.selected");
+    
+    const interests = [];
+    for (const element of selectedInterests) {
+        interests.push(element.outerText);
+    }
+
     const messageSent = {
         name: nameInput.value,
         email: emailInput.value,
         message: messageInput.value, 
-        interests: selectedInterests
+        interests: interests
     }
 
     arrayMessages.push(messageSent);
