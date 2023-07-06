@@ -8,7 +8,8 @@
 :root {
     --cor-de-fundo: #2E0249;
     --branco: #EEEEEE;
-    --cor-destaque: #A91079;    
+    --cor-destaque: #A91079;
+    --cor-destaque-hover: #940c69;    
     --cinza: #6b6b6b;
 }
 

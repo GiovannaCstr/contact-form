@@ -1,24 +1,28 @@
 .messages-section {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
     gap: 2rem;
-    margin: 0 3rem;
+    margin: 0 4rem;
 }
 
 .divTitle {
-    margin: 3rem;
+    margin: 2rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .messages-title {
     color: var(--branco);
-    font-size: 40px;
+    font-size: 46px;
 }
 
 .messages-div {
     background-color: var(--branco);
     width: 45%;
     padding: 1rem;
-    border-radius: 10px;
+    border-radius: 0 18px 18px 18px;
     margin-bottom: 1.5rem;
 }
 
@@ -46,6 +50,7 @@
     font-size: 20px;
     margin: 1.75rem 0;
     line-height: 2rem;
+    font-style: italic;
 }
 
 .messages-infos p{
@@ -63,4 +68,9 @@
     border-radius: 10px;
     font-size: 16px;
     margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: var(--cor-destaque-hover);
 }
