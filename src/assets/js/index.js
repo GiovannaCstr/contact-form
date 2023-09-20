@@ -26,9 +26,10 @@ function toggleSelection(element) {
 function checkInterests() { 
     selectedInterests = document.querySelectorAll(".interesses.selected");
     if(selectedInterests.length > 0){
-        console.log(selectedInterests.length)
         interestsError = false;
-    }    
+    } else {
+        interestsError = true;
+    }
 }
 
 nameInput.addEventListener("input", function(){

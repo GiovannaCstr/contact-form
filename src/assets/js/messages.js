@@ -6,6 +6,8 @@ btnBack.addEventListener("click", function(){
     window.location.href = "index.html";
 })
 
+savedMessages.reverse();
+
 savedMessages.forEach((messages) => {
     const { name, email, message, interests } = messages;
 
